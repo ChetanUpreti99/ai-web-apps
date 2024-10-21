@@ -1,0 +1,67 @@
+# AI Web Apps
+
+## Day 1
+
+### 1 Setup
+
+#### 1 Setup Next.js
+
+#### 2 Important support URLs
+
+- https://js.langchain.com/docs/introduction/
+    - v0.3
+
+- chatgpt for research
+  - but beware about old data
+- join langchain official discord
+  - https://discord.gg/RTgqt6My
+  - look for "ask-kapa-langchain" channel under "support" channel
+    - https://discord.gg/Nv6t8Uk3
+  - recommended ai search ✅ since it's more updated
+- join "BG Web Agency" discord
+  - https://discord.gg/fAeVq3N3
+  - youtube ---> help ---> https://discord.gg/mwagwjkD
+
+### 3 Setup API Keys and env variables
+
+- OpenAI
+- Pinecone API Key
+- Pinecone Index
+  - For embedding we are going to use `text-embedding-3-small` from openai because it is the best option at the moment
+    - number of dimensions: 1536
+    - choose cosine or euclidean distance for similarity search
+
+### 4 LangChain Introduction
+
+- Prompt Templates:
+  - String Prompt Templates
+    - simple string
+  - to test .mjs file: set api keys on the terminal: `export OPENAI_API_KEY=sk-...` and then run the file ex: `node 01-....mjs`
+
+- LLM Chain:
+
+  - LLM chain helps us:
+    - invoke the prompt template with the right parameters
+    - it makes an LLM call ex: openai(or any other model) using the prompt template we provide
+  - LLM Chain is not smart and all the steps are decided by the developer
+
+  - Agent (initializeAgentExecutorWithOptions)
+  - It is more flexible than LLM chain and uses openAI to be smart and all user have to do is provide the input and agent will figure out along with openai and the available tools how to get the best response
+  - Agent does not use a pre-defined set of prompt templates. It uses the prompt input that is provided by the user
+  - while llmchain uses a pre-defined set of prompt templates and makes the call to the model and returns the response. agent uses tools along with the input, tools and figures out the best way to make the call to the model and return the response
+  - models: https://platform.openai.com/docs/models
+  - https://js.langchain.com/docs/integrations/tools/discord/#usage-in-an-agent
+  - This agent uses Observation to keep track of the state of the system
+- 🚨 TODO: 🌟 You should look into adding guard tests to check that your system is in the right state as you identify these issues.
+
+  - E.g., you might add a startup check to validate the key is provided in the console/environment. You may check that you're grabbing an appropriate language model as a separate check
+  - Agent talks to itself over and over again with the help of openai to figure out the best way to make the call to the model and return the response
+
+- Plan and Action Agent (PlanAndExecuteAgentExecutor)
+
+  - This does not work with `OpenAI` class but only works with `ChatOpenAI` class
+    - https://stackoverflow.com/questions/76950609/what-is-the-difference-between-openai-and-chatopenai-in-langchain
+  - Tools we are using:
+    - for search: serpapi, alternate: TavilySearchResults (🔥 Recommended for AI applications)
+      - https://serpapi.com/
+      - https://tavily.com/ and https://js.langchain.com/docs/integrations/tools/tavily_search/
