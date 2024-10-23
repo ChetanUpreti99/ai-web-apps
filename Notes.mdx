@@ -2,15 +2,12 @@
 
 ## Day 1
 
-### 1 Setup
+### 1 Setup Next.js
 
-#### 1 Setup Next.js
-
-#### 2 Important support URLs
+### 2 Important support URLs
 
 - https://js.langchain.com/docs/introduction/
-    - v0.3
-
+  - v0.3
 - chatgpt for research
   - but beware about old data
 - join langchain official discord
@@ -33,19 +30,23 @@
 
 ### 4 LangChain Introduction
 
+- `npm i langchain @langchain/openai @langchain/community`
+
 - Prompt Templates:
   - String Prompt Templates
     - simple string
-  - to test .mjs file: set api keys on the terminal: `export OPENAI_API_KEY=sk-...` and then run the file ex: `node 01-....mjs`
+  - ChatPromptTemplates
+    - array of strings
+- to test .mjs file: set api keys on the terminal: `export OPENAI_API_KEY=sk-...` and then run the file ex: `node 01-....mjs`
 
 - LLM Chain:
 
   - LLM chain helps us:
     - invoke the prompt template with the right parameters
     - it makes an LLM call ex: openai(or any other model) using the prompt template we provide
-  - LLM Chain is not smart and all the steps are decided by the developer
+  - LLM Chain is not smart and all the steps are decided by the develoepr
 
-  - Agent (initializeAgentExecutorWithOptions)
+- Agent (initializeAgentExecutorWithOptions)
   - It is more flexible than LLM chain and uses openAI to be smart and all user have to do is provide the input and agent will figure out along with openai and the available tools how to get the best response
   - Agent does not use a pre-defined set of prompt templates. It uses the prompt input that is provided by the user
   - while llmchain uses a pre-defined set of prompt templates and makes the call to the model and returns the response. agent uses tools along with the input, tools and figures out the best way to make the call to the model and return the response
@@ -65,3 +66,8 @@
     - for search: serpapi, alternate: TavilySearchResults (🔥 Recommended for AI applications)
       - https://serpapi.com/
       - https://tavily.com/ and https://js.langchain.com/docs/integrations/tools/tavily_search/
+
+- BufferMemory and ConversationChain
+  - allows you to store and retrieve data from the memory
+
+### 5 First AI App: NeuroVault: Smart Memory Organizer
