@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 import { useState } from "react";
 
 type SourceDocument = {
@@ -19,6 +20,8 @@ type Props = {
 
 const Message = ({ message }: Props) => {
   const [showSourceDocuments, setShowSourceDocuments] = useState(false);
+  const { theme } = useTheme();
+  
   return (
     <div className="flex flex-col space-y-4">
       <div className="flex w-full">
@@ -27,7 +30,9 @@ const Message = ({ message }: Props) => {
             "max-w-[90%]",
             `${
               message.type === "user"
-                ? "bg-zinc-800 rounded-3xl p-4 ml-auto"
+                ? `bg-zinc-800 rounded-3xl p-4 ml-auto ${
+                  theme === "light" ? "text-white" : ""
+                }` 
                 : ""
             }`
           )}
