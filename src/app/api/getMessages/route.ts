@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import { RedisChatMessageHistory } from "@langchain/redis";
+import { NextResponse } from "next/server";
 
 import { getRedisClient } from "@/lib/redis";
 
@@ -33,6 +33,7 @@ export async function GET (req: Request) {
       return NextResponse.json({ messages });
     
   } catch (error) {
+    console.log(error);
     return NextResponse.json({ error:  "An error occurred while fetching messages" }, { status: 500 });
   }
 
