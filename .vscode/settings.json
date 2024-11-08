@@ -5,6 +5,7 @@
 		"llmchain",
 		"Neurovault",
 		"openai",
+		"streamflow",
 		"Tavily"
 	],
 	"typescript.preferences.importModuleSpecifier": "non-relative",
